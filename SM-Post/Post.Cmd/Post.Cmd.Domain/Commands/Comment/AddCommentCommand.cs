@@ -1,6 +1,4 @@
-﻿using CQRS.Core.Commands;
-
-namespace Post.Cmd.Api.Commands.Comment
+﻿namespace Post.Cmd.Domain.Commands.Comment
 {
     public class AddCommentCommand : BaseCommentCommand
     {

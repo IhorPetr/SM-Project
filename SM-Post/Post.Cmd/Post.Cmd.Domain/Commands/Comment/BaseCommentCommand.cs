@@ -1,6 +1,6 @@
 ﻿using CQRS.Core.Commands;
 
-namespace Post.Cmd.Api.Commands.Comment
+namespace Post.Cmd.Domain.Commands.Comment
 {
     public abstract class BaseCommentCommand : BaseCommand
     {

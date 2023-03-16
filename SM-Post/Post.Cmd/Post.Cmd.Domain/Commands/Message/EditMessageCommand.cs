@@ -1,6 +1,6 @@
 ﻿using CQRS.Core.Commands;
 
-namespace Post.Cmd.Api.Commands.Message
+namespace Post.Cmd.Domain.Commands.Message
 {
     public class EditMessageCommand : BaseCommand
     {
