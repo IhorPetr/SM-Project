@@ -9,5 +9,6 @@
 
         public int Version { get; set; }
         public string Type { get; set; }
+        public Guid Id { get; set; }
     }
 }

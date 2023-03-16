@@ -2,7 +2,7 @@
 
 namespace Post.Common.Events.Post
 {
-    internal class PostCreatedEvent : BaseEvent
+    public class PostCreatedEvent : BaseEvent
     {
         public string Author { get; set; }
         public string Message { get; set; }
