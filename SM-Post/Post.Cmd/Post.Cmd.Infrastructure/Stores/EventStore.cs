@@ -33,7 +33,7 @@ namespace Post.Cmd.Infrastructure.Stores
         public async Task SaveEventAsync(Guid aggregateId, IEnumerable<BaseEvent> events, int expectedVersion)
         {
             var eventStream = await _eventStoreRepository.FindByAggregateIdAsync(aggregateId);
-            if (expectedVersion == -1 && eventStream[^1].Version != expectedVersion)
+            if (expectedVersion != -1 && eventStream[^1].Version != expectedVersion)
             {
                 throw new ConcurrencyException();
             }

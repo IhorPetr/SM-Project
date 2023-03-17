@@ -22,7 +22,8 @@ builder.Services.AddScoped<IEventProducer, EventProducer>();
 builder.Services.AddScoped<IEventStore, EventStore>();
 builder.Services.AddScoped<IEventSourcingHandler<PostAggregate>, EventSourcingHandler>();
 builder.Services.AddScoped<ICommandHandler, CommandHandler>();
-builder.Services.AddSingleton<ICommandDispatcher>(_ =>  new CommandDispatcher(_.GetRequiredService<ICommandHandler>()));
+var commandHandle = builder.Services.BuildServiceProvider().GetRequiredService<ICommandHandler>();
+builder.Services.AddSingleton<ICommandDispatcher>(new CommandDispatcher(commandHandle));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

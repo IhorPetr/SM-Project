@@ -2,6 +2,7 @@ using Confluent.Kafka;
 using CQRS.Core.Consumers;
 using Microsoft.EntityFrameworkCore;
 using Post.Query.Domain.Repositories;
+using Post.Query.Infrastructure;
 using Post.Query.Infrastructure.Consumers;
 using Post.Query.Infrastructure.DataAccess;
 using Post.Query.Infrastructure.Extensions;
@@ -34,6 +35,8 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.InitDatabase();
+    app.InitKafkaTopic();
 }
 
 app.UseHttpsRedirection();
@@ -41,7 +44,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
-app.InitDatabase();
 
 app.Run();
