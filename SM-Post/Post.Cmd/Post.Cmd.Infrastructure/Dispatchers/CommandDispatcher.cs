@@ -20,6 +20,7 @@ namespace Post.Cmd.Infrastructure.Dispatchers
             RegisterHandler<EditCommentCommand>(commandHandler.HandleAsync);
             RegisterHandler<RemoveCommentCommand>(commandHandler.HandleAsync);
             RegisterHandler<DeletePostCommand>(commandHandler.HandleAsync);
+            RegisterHandler<RestoreReadDbCommand>(commandHandler.HandleAsync);
         }
 
         public async Task SendAsync(BaseCommand command)

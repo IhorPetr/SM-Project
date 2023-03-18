@@ -51,6 +51,11 @@ namespace Post.Cmd.Domain.Commands
             await EditActionOnAggregate(command.Id, (agr) => agr.DeletePost(command.UserName));
         }
 
+        public async Task HandleAsync(RestoreReadDbCommand command)
+        {
+            await _eventSourcingHandler.RepublishEventAsync();
+        }
+
         private async Task EditActionOnAggregate(Guid Id, Action<PostAggregate> postAggregateAction)
         {
             var aggregate = await _eventSourcingHandler.GetByIdAsync(Id);
